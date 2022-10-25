@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock x:Name="textBlockVariant" HorizontalAlignment="Left" Margin="678,29,0,0" TextWrapping="Wrap" Text="Вариант номер 1" VerticalAlignment="Top" TextAlignment="Right"/>
+        <TextBlock x:Name="textBlockVariant" HorizontalAlignment="Left" Margin="638,26,0,0" TextWrapping="Wrap" Text="Белый вариант номер 1" VerticalAlignment="Top" TextAlignment="Right"/>
         <TextBox x:Name="textBoxInput" HorizontalAlignment="Left" Margin="167,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="271" Height="33"/>
         <Button x:Name="buttonStart" Content="Рассчитать" HorizontalAlignment="Left" Margin="543,142,0,0" VerticalAlignment="Top" Height="32" Width="116" Click="buttonStart_Click"/>
         <TextBlock x:Name="textBlockOutpun" HorizontalAlignment="Center" Margin="0,322,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="49" Width="720" TextAlignment="Center" FontSize="36"/>

@@ -29,29 +29,25 @@ namespace PR_21._106_Belyi_1
         {
             try
             {
-                
-                if (double.TryParse(textBoxInput.Text, out var namder) && textBoxInput.Text.Length == 12)
-                {
-                    Str str = new Str { textInput = textBoxInput.Text };
-                    int proiz = 1;
-                    int sum = 0;
-                    for (int i = 12; i > 0; i--)
-                    {
-                        if (i > 9)
-                            proiz *= Convert.ToInt32((namder / Math.Pow(10, i - 1)) % 10);
-                        else
-                        {
-                            sum += Convert.ToInt32((namder / Math.Pow(10, i)) % 10);
-                        }
-                    }
+                StrError(textBoxInput.Text);
 
-                    if (proiz == sum)
-                        textBlockOutpun.Text = "Равны";
+                double.TryParse(textBoxInput.Text, out var namder);
+                int proiz = 1;
+                int sum = 0;
+                for (int i = 12; i > 0; i--)
+                {
+                    if (i > 9)
+                        proiz *= Convert.ToInt32((namder / Math.Pow(10, i - 1)) % 10);
                     else
-                        textBlockOutpun.Text = "Не равны";
+                    {
+                        sum += Convert.ToInt32((namder / Math.Pow(10, i)) % 10);
+                    }
                 }
+
+                if (proiz == sum)
+                    textBlockOutpun.Text = "Равны";
                 else
-                    textBlockOutpun.Text = "Неправильно введены данные";
+                    textBlockOutpun.Text = "Не равны";
             }
             catch (StringError ex)
             {
@@ -59,27 +55,26 @@ namespace PR_21._106_Belyi_1
             }
         }
 
-        class StringError : ArgumentException
+        static void StrError(string s)
         {
-        public StringError(string message)
-            : base(message)
-        { }
-    }
-
-    class Str
-        {
-            public string textInput { get; set; } = "";
-
-            public int StrError
+            if (s.Length != 12)
             {
-                get => textInput.Length;
-                set
-                {
-                    if (value == 12)
-                        throw new StringError("Неправильно введены данные");
-                }
-                
+                throw new StringError("Неправильно введены данные");
+            }
+
+            if (!double.TryParse(s, out var namder))
+            {
+                throw new StringError("Неправильно введены данные");
             }
         }
+
+        class StringError : ArgumentException
+        {
+            public StringError(string message)
+                : base(message)
+            {
+            }
+        }
+
     }
 }
