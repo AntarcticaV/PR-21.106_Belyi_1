@@ -44,10 +44,7 @@ namespace PR_21._106_Belyi_1
                     }
                 }
 
-                if (proiz == sum)
-                    textBlockOutpun.Text = "Равны";
-                else
-                    textBlockOutpun.Text = "Не равны";
+                textBlockOutpun.Text = proiz == sum ? "Равны" : "Не равны";
             }
             catch (StringError ex)
             {
